@@ -1,6 +1,6 @@
 <p align="center">
   <a href="#-combined-contribution-activity">
-    <img src="./assets/tuantv-banner.jpg" alt="TUAN TV Logo" width="100%" />
+    <img src="./assets/tuantv-banner.png" alt="TUAN TV Logo" width="100%" />
   </a>
 </p>
 
@@ -12,30 +12,29 @@
 
 ---
 
-# 🚀 OrbiTasks - Task & Project Management Website
+# 🚀 OrbiTasks - Task & Project Management Web Application
 
-Website hỗ trợ sinh viên và đội nhóm **quản lý dự án, phân công nhiệm vụ và theo dõi tiến độ** một cách trực quan, khoa học và hoàn toàn miễn phí. Dự án được xây dựng trong khuôn khổ môn học **FER202 (Front-End Web Development)** tại Đại học FPT Hà Nội.
+A modern, intuitive web application designed to help student teams **manage projects, assign tasks, and track progress** effectively, seamlessly, and completely free of charge. Developed as part of the **FER202 (Front-End Web Development)** course at FPT University Hanoi.
 
 ---
 
-## 🌟 Các tính năng chính
+## 🌟 Key Features
 
-* **Xác thực & Bảo mật (Auth & Security):** Đăng ký tài khoản, đăng nhập thường, đăng nhập nhanh qua Google (OAuth 2.0), quên/đổi mật khẩu, xác minh reCAPTCHA chống spam bot.
-* **Quản lý Hồ sơ cá nhân:** Cập nhật thông tin người dùng, đổi ảnh đại diện (Avatar), đổi mật khẩu cá nhân.
-* **Quản lý Dự án (Projects):** Tạo mới, chỉnh sửa, gắn sao yêu thích, tìm kiếm, lọc, lưu trữ (Archive), khôi phục và xoá dự án.
-* **Quản lý Thành viên (Team Members):** Mời/xoá thành viên trong dự án, phân quyền, rời dự án.
-* **Quản lý Nhiệm vụ (Tasks):** Tạo và giao việc, kéo thả trạng thái Kanban, cập nhật tiến độ, yêu cầu quyền chỉnh sửa task (Request to Edit Task), bình luận và đính kèm tài liệu.
-* **Quản lý Nhãn (Labels):** Tạo nhãn màu phân loại công việc (Public / Private).
-* **Bản đồ & Định vị (OpenStreetMap):** Hiển thị bản đồ địa chỉ văn phòng, tích hợp tìm kiếm địa điểm và chỉ đường tương tác bằng Leaflet OSM.
-* **Dashboard & Thống kê:** Biểu đồ thống kê nhiệm vụ và tiến độ dự án trực quan (Recharts).
-* **Tính năng Quản trị viên (Admin):** Quản lý toàn bộ người dùng, dự án hệ thống và trích xuất báo cáo dữ liệu ra file Excel.
-* **Tính năng mở rộng:** Tích hợp AI tìm kiếm task/project bằng giọng nói (Voice Search), gợi ý công việc thông minh, hệ thống thông báo thời gian thực và hỗ trợ song ngữ **Anh - Việt (i18n)**.
+* **Authentication & Security:** User registration, credential login, Google OAuth 2.0 login, forgot/reset password, and Google reCAPTCHA protection against automated bots.
+* **User Profile Management:** Update personal profile details, change profile avatar, and update password.
+* **Project Management:** Create, edit, star/favorite, search, filter, archive, restore, and delete projects.
+* **Team Collaboration:** Invite/remove project members, configure role permissions, and leave projects.
+* **Task Management:** Create and assign tasks, interactive Kanban drag-and-drop status board, progress tracking, request to edit tasks for assignees, task comments, and file attachments.
+* **Label Management:** Create custom color-coded labels (Public / Private) to organize tasks.
+* **Interactive Maps & Navigation (OpenStreetMap):** Display company/office location with real-time address search and interactive route navigation powered by Leaflet & OSM.
+* **Dashboard & Analytics:** Visual charts and statistics tracking task completion and project timelines (Recharts).
+* **Advanced & AI Capabilities:** Voice-activated search for tasks and projects using Web Speech AI, intelligent task suggestions, real-time notifications, and bilingual support (**English - Vietnamese i18n**).
 
 ---
 
 ## 🧰 Tech Stack
 
-| Danh mục | Công nghệ & Công cụ sử dụng |
+| Category | Technologies & Tools |
 | :--- | :--- |
 | 🎨 **Frontend** | ![React](https://img.shields.io/badge/REACT-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Tailwind CSS](https://img.shields.io/badge/TAILWIND_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Ant Design](https://img.shields.io/badge/ANT_DESIGN-0170FE?style=for-the-badge&logo=antdesign&logoColor=white) ![Bootstrap](https://img.shields.io/badge/BOOTSTRAP-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) |
 | ⚙️ **Backend** | ![Node.js](https://img.shields.io/badge/NODE.JS-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/EXPRESS-000000?style=for-the-badge&logo=express&logoColor=white) ![Java](https://img.shields.io/badge/JAVA-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/SPRING_BOOT-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white) ![JSON Server](https://img.shields.io/badge/JSON_SERVER-000000?style=for-the-badge&logo=json&logoColor=white) |
@@ -45,75 +44,75 @@ Website hỗ trợ sinh viên và đội nhóm **quản lý dự án, phân côn
 
 ---
 
-## ⚙️ Cài đặt & Khởi chạy (Local Development)
+## ⚙️ Installation & Getting Started (Local Development)
 
-### 1. Clone dự án
+### 1. Clone the repository
 ```bash
 git clone https://github.com/TranTuan-ops/task-management-website.git
 cd task-management-website
 ```
 
-### 2. Cài đặt thư viện dependencies
+### 2. Install dependencies
 ```bash
 npm install --legacy-peer-deps
 ```
 
-### 3. Cấu hình biến môi trường (.env)
-Tạo file `.env` ở thư mục gốc (hoặc copy từ `.env.example`):
+### 3. Configure environment variables (.env)
+Create a `.env` file in the root directory (or copy from `.env.example`):
 ```env
 VITE_PORT=5173
 VITE_API_URL=http://localhost:9999
 ```
 
-### 4. Khởi chạy Mock Backend (JSON Server)
-Mở một cửa sổ Terminal và chạy:
+### 4. Start the Mock Backend (JSON Server)
+Open a terminal window and run:
 ```bash
 npx json-server --watch database.json --port 9999
 ```
-*API mock sẽ hoạt động tại:* `http://localhost:9999`
+*The mock API server will run at:* `http://localhost:9999`
 
-### 5. Khởi chạy Frontend
-Mở một cửa sổ Terminal thứ hai và chạy:
+### 5. Start the Frontend Development Server
+Open a second terminal window and run:
 ```bash
 npm run dev
 ```
-*Truy cập website tại:* [http://localhost:5173](http://localhost:5173)
+*Access the web application at:* [http://localhost:5173](http://localhost:5173)
 
 ---
 
-## 📂 Cấu trúc thư mục
+## 📂 Project Directory Structure
 
 ```text
 task-management-website/
-├── assets/                 # Hình ảnh banner và dashboard cho tài liệu
-├── public/                 # Assets tĩnh (icon, logo, hình ảnh web)
+├── assets/                 # Banner and dashboard graphics for documentation
+├── public/                 # Static assets (icons, brand logos, web images)
 ├── src/
-│   ├── assets/             # Hình ảnh, video, lottie animation
-│   ├── banner/             # Component banner giao diện
-│   ├── constants/          # Hằng số hệ thống (API URL, Roles, Routes)
-│   ├── context/            # Quản lý Context API (Auth, State)
-│   ├── layouts/            # Layout bố cục (PreLoginLayout, PostLoginLayout)
-│   ├── locales/            # Cấu hình đa ngôn ngữ i18n (en, vi)
-│   ├── mapOSM/             # Component Bản đồ tương tác Leaflet OpenStreetMap
-│   ├── pages/              # Giao diện các trang (Admin, Guest, User)
-│   ├── routes/             # Cấu hình React Router
-│   ├── security/           # Logic xác minh & bảo mật
-│   └── services/           # Gọi API & xử lý dữ liệu dịch vụ
-├── database.json           # Cơ sở dữ liệu mẫu cho JSON Server
-├── .env.example            # Mẫu biến môi trường
-└── package.json            # Danh sách thư viện và cấu hình scripts
+│   ├── assets/             # Media assets, animations, icons
+│   ├── banner/             # Promotional and UI banner components
+│   ├── constants/          # Application constants (API endpoints, roles, route paths)
+│   ├── context/            # Global React Context API providers (Auth, State)
+│   ├── layouts/            # Layout wrappers (PreLoginLayout, PostLoginLayout)
+│   ├── locales/            # Internationalization dictionaries (en, vi)
+│   ├── mapOSM/             # Interactive Leaflet OpenStreetMap components
+│   ├── pages/              # View pages (Admin, Guest, User)
+│   ├── routes/             # Client-side routing configuration
+│   ├── security/           # Access verification & security guards
+│   └── services/           # API integration services and business logic
+├── database.json           # Mock JSON database for JSON Server
+├── .env.example            # Environment variables template
+└── package.json            # Project dependencies and executable scripts
 ```
 
 ---
 
-## 👥 Thành viên dự án & Đóng góp
+## 👥 Team Members & Contributions
 
 * **Phuong Anh**
 * **Tran Tuan:**
-  * **Auth & Onboarding:** Code UI Signup, tích hợp đăng nhập bằng Google (Google Login OAuth).
-  * **Quản lý nhiệm vụ (Tasks):** Code UI Update Task, Code UI Request to edit task for member being assigned tasks.
-  * **Dashboard & Báo cáo:** Code UI User Overview Dashboard for Admin, Code UI Task Overview & Task Dashboard inside owner's project for user.
-  * **Tính năng nâng cao & AI:** Tích hợp đa ngôn ngữ (i18n) chuyển đổi giao diện Anh - Việt, tích hợp AI tìm kiếm task & project bằng giọng nói (Voice Search AI).
+  * **Auth & Onboarding:** Designed and coded UI for Signup, integrated Google OAuth 2.0 login.
+  * **Task Management:** Coded UI for Update Task, implemented Request to Edit Task feature for assigned members.
+  * **Dashboards & Analytics:** Coded UI User Overview Dashboard for Admin, developed Task Overview and Task Analytics Dashboard inside project owner workspace.
+  * **Advanced & AI Features:** Integrated bilingual internationalization (i18n English - Vietnamese), developed AI-powered Voice Search for tasks and projects.
 * **Hoang**
 * **Manh**
 * **Phu**
@@ -125,7 +124,7 @@ task-management-website/
 
 <div align="center" id="contribution-dashboard">
   <a href="https://github.com/TranTuan-ops">
-    <img src="./assets/contribution-dashưboard.jpg" alt="Contribution Dashboard" width="100%" />
+    <img src="https://raw.githubusercontent.com/TranTuan-ops/TranTuan-ops/main/dashboard.svg?utm_source=chatgpt.com" alt="Contribution Dashboard" width="100%" />
   </a>
   <p><i>Daily activity aggregated from GitHub and GitLab &bull; Automatically updated by GitHub Actions</i></p>
 </div>

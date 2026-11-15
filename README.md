@@ -7,7 +7,7 @@
 <h3 align="center">Hi, I'm Tran Tuan 👋</h3>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=550&lines=Software+engineering+graduate+FPT+University;Practice+web" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=550&lines=Software+engineering+graduate+FPT+University;Practicing+front-end+Programming" alt="Typing SVG" />
 </p>
 
 ---
@@ -125,7 +125,14 @@ task-management-website/
 
 <div align="center" id="contribution-dashboard">
   <a href="https://github.com/TranTuan-ops">
-    <img src="./assets/contribution-dashboard.jpg" alt="Contribution Dashboard" width="100%" />
+    <img src="./assets/contribution-dashưboard.jpg" alt="Contribution Dashboard" width="100%" />
   </a>
   <p><i>Daily activity aggregated from GitHub and GitLab &bull; Automatically updated by GitHub Actions</i></p>
 </div>
+
+
+<h3 align="center">🐍 My GitHub Contributions</h3>
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/TranTuan-ops/TranTuan-ops/main/contributions.svg" alt="GitHub Contribution Snake" />
+</p>

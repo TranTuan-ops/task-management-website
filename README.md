@@ -1,3 +1,17 @@
+<p align="center">
+  <a href="#-combined-contribution-activity">
+    <img src="./assets/tuantv-banner.jpg" alt="TUAN TV Logo" width="100%" />
+  </a>
+</p>
+
+<h3 align="center">Hi, I'm Tran Tuan 👋</h3>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=36BCF7&center=true&vCenter=true&width=550&lines=Software+engineering+graduate+FPT+University;Practice+web" alt="Typing SVG" />
+</p>
+
+---
+
 # 🚀 OrbiTasks - Task & Project Management Website
 
 Website hỗ trợ sinh viên và đội nhóm **quản lý dự án, phân công nhiệm vụ và theo dõi tiến độ** một cách trực quan, khoa học và hoàn toàn miễn phí. Dự án được xây dựng trong khuôn khổ môn học **FER202 (Front-End Web Development)** tại Đại học FPT Hà Nội.
@@ -19,14 +33,15 @@ Website hỗ trợ sinh viên và đội nhóm **quản lý dự án, phân côn
 
 ---
 
-## 🛠️ Công nghệ sử dụng (Tech Stack)
+## 🧰 Tech Stack
 
-* **Core & Build Tool:** React 19, Vite
-* **UI & Styling:** Ant Design (v5), Tailwind CSS (v4), Framer Motion, Lottie React
-* **Backend Mock:** JSON Server
-* **Maps & Geo:** Leaflet, React-Leaflet, OpenStreetMap, Leaflet Routing Machine
-* **Bảo mật & Auth:** Google OAuth, Firebase, Google reCAPTCHA
-* **Dữ liệu & Tiện ích:** Axios, Recharts, ExcelJS, FileSaver, i18next, React Speech Recognition
+| Danh mục | Công nghệ & Công cụ sử dụng |
+| :--- | :--- |
+| 🎨 **Frontend** | ![React](https://img.shields.io/badge/REACT-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Vite](https://img.shields.io/badge/VITE-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![JavaScript](https://img.shields.io/badge/JAVASCRIPT-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![Tailwind CSS](https://img.shields.io/badge/TAILWIND_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Ant Design](https://img.shields.io/badge/ANT_DESIGN-0170FE?style=for-the-badge&logo=antdesign&logoColor=white) ![Bootstrap](https://img.shields.io/badge/BOOTSTRAP-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white) |
+| ⚙️ **Backend** | ![Node.js](https://img.shields.io/badge/NODE.JS-43853D?style=for-the-badge&logo=node.js&logoColor=white) ![Express](https://img.shields.io/badge/EXPRESS-000000?style=for-the-badge&logo=express&logoColor=white) ![Java](https://img.shields.io/badge/JAVA-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white) ![Spring Boot](https://img.shields.io/badge/SPRING_BOOT-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white) ![JSON Server](https://img.shields.io/badge/JSON_SERVER-000000?style=for-the-badge&logo=json&logoColor=white) |
+| 🗄️ **Databases** | ![MySQL](https://img.shields.io/badge/MYSQL-005C84?style=for-the-badge&logo=mysql&logoColor=white) ![SQL Server](https://img.shields.io/badge/SQL_SERVER-CC292B?style=for-the-badge&logo=microsoft-sql-server&logoColor=white) ![MongoDB](https://img.shields.io/badge/MONGODB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white) ![Firebase](https://img.shields.io/badge/FIREBASE-FFCA28?style=for-the-badge&logo=firebase&logoColor=black) |
+| 🚀 **DevOps** | ![Linux](https://img.shields.io/badge/LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black) ![Docker](https://img.shields.io/badge/DOCKER-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Docker Compose](https://img.shields.io/badge/DOCKER_COMPOSE-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Nginx](https://img.shields.io/badge/NGINX-009639?style=for-the-badge&logo=nginx&logoColor=white) ![CI/CD](https://img.shields.io/badge/CI%2FCD-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) |
+| 🧪 **Tools** | ![Git](https://img.shields.io/badge/GIT-F05032?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/GITHUB-181717?style=for-the-badge&logo=github&logoColor=white) ![VS Code](https://img.shields.io/badge/VS_CODE-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white) ![Ubuntu Server](https://img.shields.io/badge/UBUNTU_SERVER-E95420?style=for-the-badge&logo=ubuntu&logoColor=white) |
 
 ---
 
@@ -70,7 +85,8 @@ npm run dev
 
 ```text
 task-management-website/
-├── public/                 # Assets tĩnh (icon, logo, hình ảnh)
+├── assets/                 # Hình ảnh banner và dashboard cho tài liệu
+├── public/                 # Assets tĩnh (icon, logo, hình ảnh web)
 ├── src/
 │   ├── assets/             # Hình ảnh, video, lottie animation
 │   ├── banner/             # Component banner giao diện
@@ -102,3 +118,14 @@ task-management-website/
 * **Manh**
 * **Phu**
 * **Bui Duong**
+
+---
+
+## 📊 Combined Contribution Activity
+
+<div align="center" id="contribution-dashboard">
+  <a href="https://github.com/TranTuan-ops">
+    <img src="./assets/contribution-dashboard.jpg" alt="Contribution Dashboard" width="100%" />
+  </a>
+  <p><i>Daily activity aggregated from GitHub and GitLab &bull; Automatically updated by GitHub Actions</i></p>
+</div>

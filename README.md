@@ -1,142 +1,104 @@
-# task-management-website
+# 🚀 OrbiTasks - Task & Project Management Website
 
-Website giúp các nhóm sinh viên **quản lý dự án, phân công công việc và theo dõi tiến độ** một cách hiệu quả mà không phải trả phí.  
-Được xây dựng trong khuôn khổ dự án nhóm để thực hiện **các project như đồ án, ...** và làm việc nhóm.
+Website hỗ trợ sinh viên và đội nhóm **quản lý dự án, phân công nhiệm vụ và theo dõi tiến độ** một cách trực quan, khoa học và hoàn toàn miễn phí. Dự án được xây dựng trong khuôn khổ môn học **FER202 (Front-End Web Development)** tại Đại học FPT Hà Nội.
 
-## Demo:
-Link Demo: https://task-management-website-fr5iq5wdf-phuong-anhs-projects-84f4d85d.vercel.app
+---
 
-### Các tính năng chính:
-- **Xác thực & Quản lý tài khoản**: Đăng ký, đăng nhập, quên mật khẩu, login bằng Google, xác minh người dùng.  
-- **Tính năng chung của Người dùng**: Cập nhật thông tin, ảnh đại diện, đổi mật khẩu.  
-- **Quản lý Dự án**: Tạo, chỉnh sửa, tìm kiếm, lọc, lưu trữ, khôi phục, xoá vĩnh viễn.  
-- **Quản lý Thành viên trong dự án**: Thêm/xoá thành viên, rời khỏi dự án.  
-- **Quản lý Nhiệm vụ**: Giao việc, chỉnh sửa, thay đổi trạng thái, lưu trữ, xem dashboard, biểu đồ tiến độ.  
-- **Quản lý Nhãn (Labels)**: Tạo, chỉnh sửa, xoá, phân loại công khai/riêng tư.  
-- **Dashboard**: Thống kê tổng quan dự án, nhiệm vụ, biểu đồ trực quan.  
-- **Tính năng Admin**: Quản lý tổng quan người dùng, quản lý tổng quan dự án, xuất dữ liệu Excel.  
+## 🌟 Các tính năng chính
 
-#### Công nghệ sử dụng
-- **Frontend**: ReactJS, Tailwindcss, Antd
-- **Backend**: JSON Server (Fake API)
-- **Triển khai**: Vercel
+* **Xác thực & Bảo mật (Auth & Security):** Đăng ký tài khoản, đăng nhập thường, đăng nhập nhanh qua Google (OAuth 2.0), quên/đổi mật khẩu, xác minh reCAPTCHA chống spam bot.
+* **Quản lý Hồ sơ cá nhân:** Cập nhật thông tin người dùng, đổi ảnh đại diện (Avatar), đổi mật khẩu cá nhân.
+* **Quản lý Dự án (Projects):** Tạo mới, chỉnh sửa, gắn sao yêu thích, tìm kiếm, lọc, lưu trữ (Archive), khôi phục và xoá dự án.
+* **Quản lý Thành viên (Team Members):** Mời/xoá thành viên trong dự án, phân quyền, rời dự án.
+* **Quản lý Nhiệm vụ (Tasks):** Tạo và giao việc, kéo thả trạng thái Kanban, cập nhật tiến độ, yêu cầu quyền chỉnh sửa task (Request to Edit Task), bình luận và đính kèm tài liệu.
+* **Quản lý Nhãn (Labels):** Tạo nhãn màu phân loại công việc (Public / Private).
+* **Bản đồ & Định vị (OpenStreetMap):** Hiển thị bản đồ địa chỉ văn phòng, tích hợp tìm kiếm địa điểm và chỉ đường tương tác bằng Leaflet OSM.
+* **Dashboard & Thống kê:** Biểu đồ thống kê nhiệm vụ và tiến độ dự án trực quan (Recharts).
+* **Tính năng Quản trị viên (Admin):** Quản lý toàn bộ người dùng, dự án hệ thống và trích xuất báo cáo dữ liệu ra file Excel.
+* **Tính năng mở rộng:** Tích hợp AI tìm kiếm task/project bằng giọng nói (Voice Search), gợi ý công việc thông minh, hệ thống thông báo thời gian thực và hỗ trợ song ngữ **Anh - Việt (i18n)**.
 
-##### Cài đặt & sử dụng
+---
 
-**Clone dự án**: 
-git clone https://github.com/phwnganh/task-management-website.git
+## 🛠️ Công nghệ sử dụng (Tech Stack)
 
-**Cài đặt dependencies**: npm install
+* **Core & Build Tool:** React 19, Vite
+* **UI & Styling:** Ant Design (v5), Tailwind CSS (v4), Framer Motion, Lottie React
+* **Backend Mock:** JSON Server
+* **Maps & Geo:** Leaflet, React-Leaflet, OpenStreetMap, Leaflet Routing Machine
+* **Bảo mật & Auth:** Google OAuth, Firebase, Google reCAPTCHA
+* **Dữ liệu & Tiện ích:** Axios, Recharts, ExcelJS, FileSaver, i18next, React Speech Recognition
 
-**Chạy database JSON Server**: json-server --watch database.json --port 9999
+---
 
-**Chạy môi trường dev**: npm run dev
+## ⚙️ Cài đặt & Khởi chạy (Local Development)
 
-###### Cấu trúc dự án
+### 1. Clone dự án
+```bash
+git clone https://github.com/TranTuan-ops/task-management-website.git
+cd task-management-website
+```
 
-- components / # các UI component tái sử dụng
-- layouts / # bố cục chung của trang web (VD: Header, Sidebar)
-- pages / # giao diện chính (Page-level component)
-- routes / # định tuyến
-- database / # JSON database
-- services / # API & logic
-- security / # xác minh người dùng
-- context / # phân quyền
-- constants / # hằng số dùng chung
-- assets / # hình ảnh, video
+### 2. Cài đặt thư viện dependencies
+```bash
+npm install --legacy-peer-deps
+```
 
-###### Mức độ đóng góp dự án
-- Phương Anh: nhánh develop
-- Anh Tuấn: nhánh TuanTV
-- Hoàng: nhánh HoangTVHE173429
-- Mạnh: nhánh manhndt
-- Phú: nhánh phuvd
-- Dương: nhánh BuiDuong
+### 3. Cấu hình biến môi trường (.env)
+Tạo file `.env` ở thư mục gốc (hoặc copy từ `.env.example`):
+```env
+VITE_PORT=5173
+VITE_API_URL=http://localhost:9999
+```
 
-###### Cải tiến Tính năng
-- **Tích hợp AI** (đề xuất nhiệm vụ, tìm kiếm bằng giọng nói, kiểm tra nội dung bình luận)
-- **Hệ thống thông báo**
-- **Thêm reCAPTCHA để tăng tính bảo mật**
-- **Tích hợp đa ngôn ngữ**
+### 4. Khởi chạy Mock Backend (JSON Server)
+Mở một cửa sổ Terminal và chạy:
+```bash
+npx json-server --watch database.json --port 9999
+```
+*API mock sẽ hoạt động tại:* `http://localhost:9999`
 
-###### Timeline: 
-- Tuần 2–3: Học công nghệ, thiết kế Figma, ERD.
+### 5. Khởi chạy Frontend
+Mở một cửa sổ Terminal thứ hai và chạy:
+```bash
+npm run dev
+```
+*Truy cập website tại:* [http://localhost:5173](http://localhost:5173)
 
-- Tuần 4–6: Phát triển tính năng chính (Auth, Dự án, Nhiệm vụ, Dashboard).
+---
 
-- Tuần 7: Fix bug, tích hợp thông báo, đa ngôn ngữ, AI.
+## 📂 Cấu trúc thư mục
 
-- Tuần 8–9: Kiểm thử, hoàn thiện và thuyết trình.
+```text
+task-management-website/
+├── public/                 # Assets tĩnh (icon, logo, hình ảnh)
+├── src/
+│   ├── assets/             # Hình ảnh, video, lottie animation
+│   ├── banner/             # Component banner giao diện
+│   ├── constants/          # Hằng số hệ thống (API URL, Roles, Routes)
+│   ├── context/            # Quản lý Context API (Auth, State)
+│   ├── layouts/            # Layout bố cục (PreLoginLayout, PostLoginLayout)
+│   ├── locales/            # Cấu hình đa ngôn ngữ i18n (en, vi)
+│   ├── mapOSM/             # Component Bản đồ tương tác Leaflet OpenStreetMap
+│   ├── pages/              # Giao diện các trang (Admin, Guest, User)
+│   ├── routes/             # Cấu hình React Router
+│   ├── security/           # Logic xác minh & bảo mật
+│   └── services/           # Gọi API & xử lý dữ liệu dịch vụ
+├── database.json           # Cơ sở dữ liệu mẫu cho JSON Server
+├── .env.example            # Mẫu biến môi trường
+└── package.json            # Danh sách thư viện và cấu hình scripts
+```
 
-# English Version
+---
 
-# Task Management Website
+## 👥 Thành viên dự án & Đóng góp
 
-A web application that helps student teams **manage projects, assign tasks, and track progress** effectively. This project was developed as a group assignment to do **capstone project** and teamwork skills.
-
-## Demo
-
-Link Demo: https://task-management-website-fr5iq5wdf-phuong-anhs-projects-84f4d85d.vercel.app
-
-### Main Features
- - **Authentication**: Register, login, Google Login, Forgot/Reset password, Human verification.
- - **User Features**: Update profile, avatar, change password
- - **Project Management**: Create, update, archive, restore, search, filter, sort projects.
- - **Member Management Inside Project**: add/remove members, leave project
- - **Task Management**: assign tasks, edit, change status, archive, dashboards, charts.
- - **Labels Management**: create, edit, delete, public/private labels
- - **Dashboard**: project & task statistics, charts
- - **Admin Features**: manage users & projects, export data to Excel
-
- #### Tech Stack
- - **Frontend**: ReactJS, Tailwindcss, Antd
- - **Backend**: JSON Server (Fake API)
- - **Deployment**: Vercel
-
- ##### Installation
-
-**clone the repository**
- git clone https://github.com/phwnganh/task-management-website.git
-
-**install dependencies**
- npm install
-
- **Run database JSON Server**: json-server --watch database.json --port 9999
-
-**run development server**
- npm run dev
-
- ###### Folder Structure
- - components/ # reusable UI components
- - layouts/ # common layouts (Header, Sidebar)
- - pages/ # Page-level components
- - routes/ # routing
- - database/ # JSON database
- - services/ # API & logic
- - security/ # human verification
- - context/ # user roles & permissions
- - constants/ # global constants
- - assets/ # images, videos
-
- ###### Team members
- - Phương Anh: develop branch
-- Anh Tuấn: TuanTV branch
-- Hoàng: HoangTVHE173429 branch
-- Mạnh: manhndt branch
-- Phú: phuvd branch
-- Dương: BuiDuong branch
-
-###### Future Improvements
-- AI Integration (task suggestion, voice search, comment validation)
-- Notification system
-- reCAPTCHA for better security
-
-###### Project Timeline
-- Week 2–3: Learning tech stack, Figma design, ERD.
-
-- Week 4–6: Core features (Auth, Projects, Tasks, Dashboard).
-
-- Week 7: Bug fixing, notifications, multi-language, AI integration.
-
-- Week 8–9: Testing, final refinements, presentation.
-
+* **Phuong Anh**
+* **Tran Tuan:**
+  * **Auth & Onboarding:** Code UI Signup, tích hợp đăng nhập bằng Google (Google Login OAuth).
+  * **Quản lý nhiệm vụ (Tasks):** Code UI Update Task, Code UI Request to edit task for member being assigned tasks.
+  * **Dashboard & Báo cáo:** Code UI User Overview Dashboard for Admin, Code UI Task Overview & Task Dashboard inside owner's project for user.
+  * **Tính năng nâng cao & AI:** Tích hợp đa ngôn ngữ (i18n) chuyển đổi giao diện Anh - Việt, tích hợp AI tìm kiếm task & project bằng giọng nói (Voice Search AI).
+* **Hoang**
+* **Manh**
+* **Phu**
+* **Bui Duong**

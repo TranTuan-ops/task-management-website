@@ -37,7 +37,7 @@ This project was developed as part of the **FER202 (Front-End Web Development)**
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/TranTuan-ops/task-management-website-personal.git
+git clone https://github.com/trantuandev/task-management-website-personal.git
 cd task-management-website-personal
 ```
 

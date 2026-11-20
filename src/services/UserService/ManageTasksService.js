@@ -1,3 +1,4 @@
+import { apiFetch } from "../apiFetch.js";
 import { API } from "../../constants/api.constants";
 import { v4 as uuidv4 } from "uuid";
 import dayjs from "dayjs";
@@ -12,7 +13,7 @@ import { apiGetUserDetail } from "../AdminService/ManageUsersService";
 
 export const apiGetTaskList = async () => {
   try {
-    const res = await fetch(`${API.TASK_URI}`, {
+    const res = await apiFetch(`${API.TASK_URI}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -36,7 +37,7 @@ export const apiGetTaskList = async () => {
 
 export const apiGetTaskListByProject = async (projectId) => {
   try {
-    const res = await fetch(`${API.TASK_URI}?project_id=${projectId}`, {
+    const res = await apiFetch(`${API.TASK_URI}?project_id=${projectId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -60,7 +61,7 @@ export const apiGetTaskListByProject = async (projectId) => {
 
 export const apiGetTaskListByAssignee = async (assigneeId, projectId) => {
   try {
-    const memberRes = await fetch(
+    const memberRes = await apiFetch(
       `${API.PROJECT_MEMBER_URI}?user_id=${assigneeId}&project_id=${projectId}`,
       {
         method: "GET",
@@ -80,7 +81,7 @@ export const apiGetTaskListByAssignee = async (assigneeId, projectId) => {
     if (!isMember) {
       return [];
     }
-    const res = await fetch(`${API.TASK_URI}?project_id=${projectId}`, {
+    const res = await apiFetch(`${API.TASK_URI}?project_id=${projectId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -118,7 +119,7 @@ export const apiUpdateTaskStatus = async (taskId, newStatus) => {
     updateBody.completed_at = null;
   }
 
-  const res = await fetch(`${API.TASK_URI}/${taskId}`, {
+  const res = await apiFetch(`${API.TASK_URI}/${taskId}`, {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(updateBody),
@@ -130,7 +131,7 @@ export const apiUpdateTaskStatus = async (taskId, newStatus) => {
 
 export const apiCreateTask = async (taskData) => {
   try {
-    const res = await fetch(`${API.TASK_URI}`, {
+    const res = await apiFetch(`${API.TASK_URI}`, {
       method: "POST",
       body: JSON.stringify(taskData),
       headers: {
@@ -161,7 +162,7 @@ export const apiRequestToUpdateTaskByMember = async ({
       created_at: new Date().toISOString(),
     };
 
-    const res = await fetch(`${API.REQUEST_TO_EDIT_TASK_URI}`, {
+    const res = await apiFetch(`${API.REQUEST_TO_EDIT_TASK_URI}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -198,7 +199,7 @@ export const apiUpdateTaskByOwner = async (id, updates) => {
       (key) => payload[key] === undefined && delete payload[key]
     );
 
-    const res = await fetch(`${API.TASK_URI}/${id}`, {
+    const res = await apiFetch(`${API.TASK_URI}/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
@@ -215,7 +216,7 @@ export const apiUpdateTaskByOwner = async (id, updates) => {
 
 export const apiGetRequestToEditTaskByMember = async (taskId) => {
   try {
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.REQUEST_TO_EDIT_TASK_URI}?task_id=${taskId}`,
       {
         method: "GET",
@@ -238,7 +239,7 @@ export const apiGetRequestToEditTaskByMember = async (taskId) => {
 
 export const apiChangeRequestContentStatus = async (requestId, newStatus) => {
   try {
-    const res = await fetch(`${API.REQUEST_TO_EDIT_TASK_URI}/${requestId}`, {
+    const res = await apiFetch(`${API.REQUEST_TO_EDIT_TASK_URI}/${requestId}`, {
       method: "PATCH",
       body: JSON.stringify({
         status: newStatus,
@@ -258,7 +259,7 @@ export const apiChangeRequestContentStatus = async (requestId, newStatus) => {
 
 export const apiGetRequestToEditTaskDetail = async (id) => {
   try {
-    const res = await fetch(`${API.REQUEST_TO_EDIT_TASK_URI}/${id}`, {
+    const res = await apiFetch(`${API.REQUEST_TO_EDIT_TASK_URI}/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -278,7 +279,7 @@ export const apiGetRequestToEditTaskDetail = async (id) => {
 
 export const apiDisplayAssigneeByTask = async (projectId) => {
   try {
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.TASK_URI}?project_id=${projectId}&_embed=assignees`,
       {
         method: "GET",
@@ -300,7 +301,7 @@ export const apiDisplayAssigneeByTask = async (projectId) => {
 
 export const apiGetTaskDetail = async (taskId) => {
   try {
-    const res = await fetch(`${API.TASK_URI}/${taskId}`, {
+    const res = await apiFetch(`${API.TASK_URI}/${taskId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -325,7 +326,7 @@ export const apiUpdateTaskTitleDesc1 = async ({
   description,
 }) => {
   try {
-    const res = await fetch(`${API.TASK_URI}/${task_id}`, {
+    const res = await apiFetch(`${API.TASK_URI}/${task_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, description }),
@@ -345,7 +346,7 @@ export const apiUpdateTaskTitleDesc = async ({
   description,
 }) => {
   try {
-    const res = await fetch(`${API.TASK_URI}/${task_id}`, {
+    const res = await apiFetch(`${API.TASK_URI}/${task_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ title, description }),
@@ -363,7 +364,7 @@ export const apiUpdateTaskTitleDesc = async ({
 
 export const apiRenderTaskAttachments = async (taskId) => {
   try {
-    const res = await fetch(`${API.TASK_ATTACHMENT}?task_id=${taskId}`, {
+    const res = await apiFetch(`${API.TASK_ATTACHMENT}?task_id=${taskId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -381,7 +382,7 @@ export const apiRenderTaskAttachments = async (taskId) => {
 
 export const apiUploadAttachment = async (file, payload) => {
   try {
-    const res = await fetch(`${API.TASK_ATTACHMENT}`, {
+    const res = await apiFetch(`${API.TASK_ATTACHMENT}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -401,7 +402,7 @@ export const apiUploadAttachment = async (file, payload) => {
 
 export const apiRemoveAttachmentFromTask = async (attachmentId, userId) => {
   try {
-    const res = await fetch(`${API.TASK_ATTACHMENT}/${attachmentId}`, {
+    const res = await apiFetch(`${API.TASK_ATTACHMENT}/${attachmentId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -423,7 +424,7 @@ export const apiRemoveAttachmentFromTask = async (attachmentId, userId) => {
 export const apiGetAssigneeTasksInParticipatedProjects = async (assigneeId) => {
   try {
     // Fetch projects where user is Member or Owner with invite_status=Accepted
-    const memberRes = await fetch(
+    const memberRes = await apiFetch(
       `${API.PROJECT_MEMBER_URI}?user_id=${assigneeId}&invite_status=Accepted`,
       {
         method: "GET",
@@ -447,7 +448,7 @@ export const apiGetAssigneeTasksInParticipatedProjects = async (assigneeId) => {
     // Fetch tasks for each project, handling failures individually
     const tasksPromises = projectIds.map(async (projectId) => {
       try {
-        const res = await fetch(`${API.TASK_URI}?project_id=${projectId}`, {
+        const res = await apiFetch(`${API.TASK_URI}?project_id=${projectId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -474,7 +475,7 @@ export const apiGetAssigneeTasksInParticipatedProjects = async (assigneeId) => {
     const tasks = tasksResults.flat();
 
     // Fetch projects using _id_in query
-    const projectsRes = await fetch(
+    const projectsRes = await apiFetch(
       `${API.PROJECT_URI}?_id_in=${projectIds.join(",")}&is_archieved=false`,
       {
         method: "GET",
@@ -513,7 +514,7 @@ export const apiArchieveTask = async (taskId, { is_deleted }) => {
       is_deleted,
       deleted_at: is_deleted ? new Date().toISOString() : null,
     };
-    const res = await fetch(`${API.TASK_URI}/${taskId}`, {
+    const res = await apiFetch(`${API.TASK_URI}/${taskId}`, {
       body: JSON.stringify(newBody),
       method: "PATCH",
       headers: {
@@ -531,7 +532,7 @@ export const apiArchieveTask = async (taskId, { is_deleted }) => {
 
 export const apiGetCommentDetail = async (commentId) => {
   try {
-    const res = await fetch(`${API.COMMENT_URI}/${commentId}`, {
+    const res = await apiFetch(`${API.COMMENT_URI}/${commentId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -566,7 +567,7 @@ export const apiGetCommentDetail = async (commentId) => {
 //       created_at: new Date().toISOString(),
 //     };
 
-//     const res = await fetch(`${API.COMMENT_URI}`, {
+//     const res = await apiFetch(`${API.COMMENT_URI}`, {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(commentData),
@@ -627,7 +628,7 @@ export const apiCreateComment = async (
       created_at: new Date().toISOString(),
     };
 
-    const res = await fetch(`${API.COMMENT_URI}`, {
+    const res = await apiFetch(`${API.COMMENT_URI}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(commentData),
@@ -692,7 +693,7 @@ export const apiCreateComment = async (
 };
 export const apiDeleteSingleComment = async (commentId, userId) => {
   try {
-    const res = await fetch(`${API.COMMENT_URI}/${commentId}`, {
+    const res = await apiFetch(`${API.COMMENT_URI}/${commentId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -713,7 +714,7 @@ export const apiDeleteSingleComment = async (commentId, userId) => {
 export const apiDeleteCommentByParentID = async (parentId, userId) => {
   try {
     // Step 1: Fetch the parent comment to verify its type
-    const parentRes = await fetch(`${API.COMMENT_URI}/${parentId}`);
+    const parentRes = await apiFetch(`${API.COMMENT_URI}/${parentId}`);
     if (!parentRes.ok) {
       throw new Error(`Failed to fetch parent comment with ID: ${parentId}`);
     }
@@ -725,7 +726,7 @@ export const apiDeleteCommentByParentID = async (parentId, userId) => {
     }
 
     // Step 3: Delete only the parent comment
-    const deleteParentRes = await fetch(`${API.COMMENT_URI}/${parentId}`, {
+    const deleteParentRes = await apiFetch(`${API.COMMENT_URI}/${parentId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -748,7 +749,7 @@ export const apiDeleteCommentByParentID = async (parentId, userId) => {
 // Fetch all comments for a specific task
 export const apiGetCommentsByTask = async (taskId) => {
   try {
-    const res = await fetch(`${API.COMMENT_URI}?task_id=${taskId}`, {
+    const res = await apiFetch(`${API.COMMENT_URI}?task_id=${taskId}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -772,7 +773,7 @@ export const apiEditComment = async (commentId, newContent, userId) => {
       updated_at: new Date().toISOString(),
     };
 
-    const res = await fetch(`${API.COMMENT_URI}/${commentId}`, {
+    const res = await apiFetch(`${API.COMMENT_URI}/${commentId}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedData),
@@ -790,7 +791,7 @@ export const apiEditComment = async (commentId, newContent, userId) => {
 
 export const apiGetAllUsers = async () => {
   try {
-    const res = await fetch(`${API.USER_URI}`, {
+    const res = await apiFetch(`${API.USER_URI}`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     });
@@ -807,7 +808,7 @@ export const apiGetAllUsers = async () => {
 };
 
 export const apiGetCommentReactions = async (commentId) => {
-  const res = await fetch(
+  const res = await apiFetch(
     `${API.COMMENT_REACTIONS_URI}?comment_id=${commentId}`
   );
   if (!res.ok) throw new Error("Failed to fetch comment reactions");
@@ -817,7 +818,7 @@ export const apiGetCommentReactions = async (commentId) => {
 export const apiReactToComment = async (commentId, userId, reactionType) => {
   try {
     // Check for existing reactions
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.COMMENT_REACTIONS_URI}?comment_id=${commentId}&user_id=${userId}`
     );
     if (!res.ok)
@@ -828,7 +829,7 @@ export const apiReactToComment = async (commentId, userId, reactionType) => {
 
     if (sameReaction) {
       // Toggle off the existing reaction
-      const deleteRes = await fetch(
+      const deleteRes = await apiFetch(
         `${API.COMMENT_REACTIONS_URI}/${sameReaction.id}`,
         {
           method: "DELETE",
@@ -848,7 +849,7 @@ export const apiReactToComment = async (commentId, userId, reactionType) => {
       created_at: new Date().toISOString(),
     };
 
-    const createRes = await fetch(`${API.COMMENT_REACTIONS_URI}`, {
+    const createRes = await apiFetch(`${API.COMMENT_REACTIONS_URI}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newReaction),

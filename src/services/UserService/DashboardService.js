@@ -1,3 +1,4 @@
+import { apiFetch } from "../apiFetch.js";
 import {
   apiGetProjectByUser,
   apiGetProjectList,
@@ -85,19 +86,19 @@ export const apiGetUserProjectStatistics = async (userId) => {
 };
 
 export const apiGetProjectMembers = async (projectId) => {
-  const res = await fetch(
+  const res = await apiFetch(
     `${API.PROJECT_MEMBER_URI}?project_id=${projectId}&role=Member&invite_status=Accepted`
   );
   return await res.json();
 };
 
 export const apiGetAllUsers = async () => {
-  const res = await fetch(`${API.USER_URI}`);
+  const res = await apiFetch(`${API.USER_URI}`);
   return await res.json();
 };
 
 export const apiGetTasksByProject = async (projectId) => {
-  const res = await fetch(`${API.TASK_URI}?project_id=${projectId}`);
+  const res = await apiFetch(`${API.TASK_URI}?project_id=${projectId}`);
   return await res.json();
 };
 

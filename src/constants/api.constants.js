@@ -1,4 +1,5 @@
-export const BASE_SERVER = import.meta.env.VITE_API_URL || "/api";
+export const USE_MOCK_API = import.meta.env.MODE === "demo";
+export const BASE_SERVER = USE_MOCK_API ? "/api" : import.meta.env.VITE_API_URL || "/api";
 export const API = {
   USER_URI: `${BASE_SERVER}/users`,
   PROJECT_URI: `${BASE_SERVER}/projects`,

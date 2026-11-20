@@ -80,6 +80,31 @@ Access the website at:
 
 [http://localhost:5173](http://localhost:5173)
 
+## Deploy the demo to Vercel
+
+Import the repository into Vercel and deploy it with the Vite preset. The root
+`vercel.json` supplies the install command, the demo build command, and the
+rewrite for React Router. The demo database requires no environment variables.
+
+Use `demo2@example.com` for the user dashboard or `demo1@example.com` for the
+admin dashboard. Both accounts use the password `DemoOnly123!`.
+
+Demo data is seeded from `database.json` with fictional account details.
+Changes persist in the current browser for the deployment URL. Each browser
+has its own copy, and clearing the site's data resets it. Use fictional account
+information when testing signup.
+
+The deployed demo uses built-in task suggestions and accepts comments without
+Gemini validation. To try the existing Gemini integration during local Vite
+development, set `VITE_GEMINI_API_KEY` in your local environment.
+
+To preview the same build locally:
+
+```bash
+npm run build -- --mode demo
+npm run serve
+```
+
 ---
 
 ## 📂 Project Structure

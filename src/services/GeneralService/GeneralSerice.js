@@ -1,8 +1,20 @@
+import { apiFetch } from "../apiFetch.js";
 import { API } from "../../constants/api.constants";
-import axios from "axios";
+async function requestUser(userId, method, data) {
+  const response = await apiFetch(`${API.USER_URI}/${userId}`, {
+    method,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  const user = await response.json();
+  if (!response.ok) {
+    throw new Error(user.message || `User request failed (${response.status})`);
+  }
+  return user;
+}
 export const apiGetUserProfile = async (userId) => {
   try {
-    const res = await fetch(`${API.USER_URI}/${userId}`, {
+    const res = await apiFetch(`${API.USER_URI}/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -19,7 +31,7 @@ export const apiGetUserProfile = async (userId) => {
 };
 export const apiChangeAvatar = async (userId, avatarUrl) => {
   try {
-    const res = await fetch(`${API.USER_URI}/${userId}`, {
+    const res = await apiFetch(`${API.USER_URI}/${userId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -38,8 +50,7 @@ export const apiChangeAvatar = async (userId, avatarUrl) => {
   }
 };
 export const updateUserProfile = async (userId, data) => {
-  const response = await axios.put(`${API.USER_URI}/${userId}`, data);
-  return response.data;
+  return requestUser(userId, "PUT", data);
 };
 
 export const apiChangePassword = async (
@@ -47,8 +58,7 @@ export const apiChangePassword = async (
   { currentPassword, newPassword }
 ) => {
   try {
-    const getUser = await axios.get(`${API.USER_URI}/${userId}`);
-    const user = getUser.data;
+    const user = await requestUser(userId, "GET");
 
     if (user.password !== currentPassword) {
       throw new Error("Current password is incorrect");
@@ -59,16 +69,12 @@ export const apiChangePassword = async (
       );
     }
 
-    const response = await axios.patch(`${API.USER_URI}/${userId}`, {
+    return await requestUser(userId, "PATCH", {
       password: newPassword,
     });
-
-    return response.data;
   } catch (error) {
     throw new Error(
-      error.response?.data?.message ||
-        error.message ||
-        "Failed to change password"
+      error.message || "Failed to change password"
     );
   }
 };

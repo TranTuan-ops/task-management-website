@@ -1,10 +1,11 @@
+import { apiFetch } from "../apiFetch.js";
 import { API } from "../../constants/api.constants";
 import { v4 as uuidv4 } from "uuid";
 import { apiProjectAddMember } from "./ManageMembersInsideProjectService";
 
 export const apiGetProjectList = async () => {
   try {
-    const res = await fetch(`${API.PROJECT_URI}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +29,7 @@ export const apiGetProjectList = async () => {
 
 export const apiGetProjectByUser = async () => {
   try {
-    const res = await fetch(`${API.PROJECT_MEMBER_URI}`);
+    const res = await apiFetch(`${API.PROJECT_MEMBER_URI}`);
     if (!res.ok) {
       throw new Error("Failed to fetch project members");
     }
@@ -48,7 +49,7 @@ export const apiGetProjectByUser = async () => {
 
 export const apiGetProjectDetail = async (projectId) => {
   try {
-    const res = await fetch(`${API.PROJECT_URI}/${projectId}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}/${projectId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +69,7 @@ export const apiGetProjectDetail = async (projectId) => {
 
 export const apiGetFavoriteProjects = async (userId) => {
   try {
-    const res = await fetch(`${API.FAVORITE_PROJECT_URI}?user_id=${userId}`, {
+    const res = await apiFetch(`${API.FAVORITE_PROJECT_URI}?user_id=${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +95,7 @@ export const apiCreateProject = async (projectData) => {
   try {
     const { title, description, owner_id } = projectData;
 
-    const res = await fetch(`${API.PROJECT_URI}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -132,7 +133,7 @@ export const apiCreateProject = async (projectData) => {
 };
 
 export const apiUpdateProject = async (id, updatedProject) => {
-  const existingRes = await fetch(`${API.PROJECT_URI}/${id}`);
+  const existingRes = await apiFetch(`${API.PROJECT_URI}/${id}`);
   const existingProject = await existingRes.json();
   const createdAt = existingProject?.created_at;
 
@@ -142,7 +143,7 @@ export const apiUpdateProject = async (id, updatedProject) => {
 
   updatedProject.updated_at = new Date().toISOString();
 
-  const res = await fetch(`${API.PROJECT_URI}/${id}`, {
+  const res = await apiFetch(`${API.PROJECT_URI}/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -159,7 +160,7 @@ export const apiUpdateProject = async (id, updatedProject) => {
 
 export const apiAddFavoriteProject = async (userId, projectId) => {
   try {
-    const res = await fetch(`${API.FAVORITE_PROJECT_URI}`, {
+    const res = await apiFetch(`${API.FAVORITE_PROJECT_URI}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -185,7 +186,7 @@ export const apiAddFavoriteProject = async (userId, projectId) => {
 
 export const apiRemoveFavoriteProject = async (favoriteId) => {
   try {
-    const res = await fetch(`${API.FAVORITE_PROJECT_URI}/${favoriteId}`, {
+    const res = await apiFetch(`${API.FAVORITE_PROJECT_URI}/${favoriteId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -203,7 +204,7 @@ export const apiRemoveFavoriteProject = async (favoriteId) => {
 
 export const apiGetRecentlyViewedProject = async (userId) => {
   try {
-    const response = await fetch(
+    const response = await apiFetch(
       `${API.RECENNTLY_VIEWED_PROJECT}?user_id=${userId}`,
       {
         method: "GET",
@@ -226,7 +227,7 @@ export const apiGetRecentlyViewedProject = async (userId) => {
 };
 export const apiUpdateRecentlyViewedProject = async (projectId, userId) => {
   try {
-    const recentlyViewedProject = await fetch(
+    const recentlyViewedProject = await apiFetch(
       `${API.RECENNTLY_VIEWED_PROJECT}`,
       {
         method: "POST",
@@ -253,7 +254,7 @@ export const apiUpdateRecentlyViewedProject = async (projectId, userId) => {
 
 export const apiFetchArchievedProjects = async (ownerId) => {
   try {
-    const res = await fetch(`${API.PROJECT_URI}?owner_id=${ownerId}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}?owner_id=${ownerId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -277,7 +278,7 @@ export const apiRestoreProjects = async (projectId, is_archieved) => {
     if (is_archieved === false) {
       body.archived_at = null;
     }
-    const res = await fetch(`${API.PROJECT_URI}/${projectId}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}/${projectId}`, {
       method: "PATCH",
       body: JSON.stringify(body),
       headers: {
@@ -302,7 +303,7 @@ export const apiArchieveProjects = async (projectId, is_archieved) => {
       body.archived_at = new Date().toISOString();
     }
 
-    const res = await fetch(`${API.PROJECT_URI}/${projectId}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}/${projectId}`, {
       method: "PATCH",
       body: JSON.stringify(body),
       headers: {
@@ -320,7 +321,7 @@ export const apiArchieveProjects = async (projectId, is_archieved) => {
 
 export const apiDeleteProjects = async (projectId) => {
   try {
-    const res = await fetch(`${API.PROJECT_URI}/${projectId}`, {
+    const res = await apiFetch(`${API.PROJECT_URI}/${projectId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json"

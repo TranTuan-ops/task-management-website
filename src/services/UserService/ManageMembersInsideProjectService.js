@@ -1,3 +1,4 @@
+import { apiFetch } from "../apiFetch.js";
 import { readTransformValue } from "framer-motion";
 import { API } from "../../constants/api.constants";
 import { apiGetTaskListByProject } from "./ManageTasksService";
@@ -6,7 +7,7 @@ import dayjs from "dayjs";
 
 export const apiGetProjectMembers = async (projectId) => {
   try {
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.PROJECT_MEMBER_URI}?project_id=${projectId}`,
       {
         method: "GET",
@@ -30,7 +31,7 @@ export const apiGetProjectMembers = async (projectId) => {
 
     const memberDetails = await Promise.all(
       acceptedMembers.map(async (member) => {
-        const userRes = await fetch(`${API.USER_URI}/${member.user_id}`, {
+        const userRes = await apiFetch(`${API.USER_URI}/${member.user_id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -87,7 +88,7 @@ export const apiGetProjectOwner = async (projectId) => {
 
 export const apiGetPendingProjectMembers = async (projectId) => {
   try {
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.PROJECT_MEMBER_URI}?project_id=${projectId}`,
       {
         method: "GET",
@@ -111,7 +112,7 @@ export const apiGetPendingProjectMembers = async (projectId) => {
 
     const pendingMemberDetails = await Promise.all(
       pendingMembers.map(async (member) => {
-        const userRes = await fetch(`${API.USER_URI}/${member.user_id}`, {
+        const userRes = await apiFetch(`${API.USER_URI}/${member.user_id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -148,7 +149,7 @@ export const apiGetPendingProjectMembers = async (projectId) => {
 
 export const apiGetProjectMemberDetail = async (id) => {
   try {
-    const res = await fetch(`${API.PROJECT_MEMBER_URI}/${id}`, {
+    const res = await apiFetch(`${API.PROJECT_MEMBER_URI}/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -167,7 +168,7 @@ export const apiGetProjectMemberDetail = async (id) => {
 export const searchUsersNotInProject = async (projectId) => {
   try {
     // 1. Fetch all users
-    const usersRes = await fetch(API.USER_URI, {
+    const usersRes = await apiFetch(API.USER_URI, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -181,7 +182,7 @@ export const searchUsersNotInProject = async (projectId) => {
     const allUsers = await usersRes.json();
 
     // 2. Fetch current project members
-    const membersRes = await fetch(
+    const membersRes = await apiFetch(
       `${API.PROJECT_MEMBER_URI}?project_id=${projectId}`,
       {
         method: "GET",
@@ -212,7 +213,7 @@ export const searchUsersNotInProject = async (projectId) => {
 
 export const apiProjectAddMember = async (body) => {
   try {
-    const res = await fetch(`${API.PROJECT_MEMBER_URI}`, {
+    const res = await apiFetch(`${API.PROJECT_MEMBER_URI}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -232,7 +233,7 @@ export const apiProjectAddMember = async (body) => {
 
 export const apiRemoveProjectMember = async (projectId, memberId) => {
   try {
-    const res = await fetch(`${API.PROJECT_MEMBER_URI}/${memberId}`, {
+    const res = await apiFetch(`${API.PROJECT_MEMBER_URI}/${memberId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -250,7 +251,7 @@ export const apiRemoveProjectMember = async (projectId, memberId) => {
 
 export const apiGetOtherProjectMembers = async (projectId, currentUserId) => {
   try {
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.PROJECT_MEMBER_URI}?project_id=${projectId}`,
       {
         method: "GET",
@@ -276,7 +277,7 @@ export const apiGetOtherProjectMembers = async (projectId, currentUserId) => {
 
     const memberDetails = await Promise.all(
       acceptedMembers.map(async (member) => {
-        const userRes = await fetch(`${API.USER_URI}/${member.user_id}`, {
+        const userRes = await apiFetch(`${API.USER_URI}/${member.user_id}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -313,7 +314,7 @@ export const apiChangeInvitationProjectStatus = async (
   newStatus
 ) => {
   try {
-    const res = await fetch(`${API.PROJECT_MEMBER_URI}/${projectMemberId}`, {
+    const res = await apiFetch(`${API.PROJECT_MEMBER_URI}/${projectMemberId}`, {
       method: "PATCH",
       body: JSON.stringify({
         invite_status: newStatus,
@@ -333,7 +334,7 @@ export const apiChangeInvitationProjectStatus = async (
 
 export const apiRemoveTask = async (taskId) => {
   try {
-    const res = await fetch(`${API.TASK_URI}/${taskId}`, {
+    const res = await apiFetch(`${API.TASK_URI}/${taskId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -437,7 +438,7 @@ export const apiGetTasksExcludingCurrentUser = async (
     const memberDetails = await Promise.all(
       acceptedMembers.map(async (member) => {
         try {
-          const userRes = await fetch(`${API.USER_URI}/${member.user_id}`, {
+          const userRes = await apiFetch(`${API.USER_URI}/${member.user_id}`, {
             method: "GET",
             headers: {
               "Content-Type": "application/json",

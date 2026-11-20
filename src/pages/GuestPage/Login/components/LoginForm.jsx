@@ -3,6 +3,7 @@ import { useAuth } from "../../../../context/useAuth";
 import { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { DASHBOARD, SIGNUP } from "../../../../constants/routes.constants";
+import { USE_MOCK_API } from "../../../../constants/api.constants";
 import ReCAPTCHA from "react-google-recaptcha";
 import { GoogleLogin } from "@react-oauth/google";
 import { v4 as uuidv4 } from "uuid";
@@ -137,7 +138,7 @@ const LoginForm = () => {
             { required: true, message: t("Please enter your email") },
             { type: "email", message: t("Please enter a valid email") },
             {
-              pattern: /^[a-zA-Z0-9._%+-]+@(g|hot)mail\.com$/,
+              pattern: USE_MOCK_API ? /.*/ : /^[a-zA-Z0-9._%+-]+@(g|hot)mail\.com$/,
               message: t("Email must be @gmail.com or @hotmail.com"),
             },
           ]}

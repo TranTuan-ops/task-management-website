@@ -1,10 +1,11 @@
+import { apiFetch } from "../apiFetch.js";
 import dayjs from "dayjs";
 import { API } from "../../constants/api.constants";
 import { USER } from "../../constants/role.constants";
 
 export const apiGetUserList = async () => {
   try {
-    const res = await fetch(`${API.USER_URI}`, {
+    const res = await apiFetch(`${API.USER_URI}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -28,7 +29,7 @@ export const apiGetUserList = async () => {
 
 export const apiGetAllUserWithoutAdminList = async () => {
   try {
-    const res = await fetch(`${API.USER_URI}`, {
+    const res = await apiFetch(`${API.USER_URI}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -53,7 +54,7 @@ export const apiGetAllUserWithoutAdminList = async () => {
 
 export const apiGetUserDetail = async (userId) => {
   try {
-    const res = await fetch(`${API.USER_URI}/${userId}`, {
+    const res = await apiFetch(`${API.USER_URI}/${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -71,7 +72,7 @@ export const apiGetUserDetail = async (userId) => {
 };
 
 export const apiUpdateUserStatus = async (userId, data) => {
-  const res = await fetch(`${API.USER_URI}/${userId}`, {
+  const res = await apiFetch(`${API.USER_URI}/${userId}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -84,7 +85,7 @@ export const apiUpdateUserStatus = async (userId, data) => {
 
 export const apiTemporarilyDeletedAccount = async (id, is_archived) => {
   try {
-    const res = await fetch(`${API.USER_URI}/${id}`, {
+    const res = await apiFetch(`${API.USER_URI}/${id}`, {
       method: "PATCH",
       body: JSON.stringify({
         is_archived: is_archived,

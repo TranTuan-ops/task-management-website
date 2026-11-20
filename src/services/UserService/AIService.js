@@ -1,7 +1,9 @@
-const GEMINI_API_KEY = "AIzaSyDYrLlLiFKCdRscn5-bxbgqE77GBRIY8I0";
+const GEMINI_API_KEY = import.meta.env.DEV ? import.meta.env.VITE_GEMINI_API_KEY : undefined;
 // const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent";
 const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent";
 export const getAITaskSuggestions = async (title, description, startDate) => {
+  if (!GEMINI_API_KEY) return getFallbackSuggestions(title, description, startDate);
+
   try {
     const prompt = `
     Analyze the following task information and provide suggestions for:
@@ -149,6 +151,8 @@ const determineLabels = (title, description) => {
 }; 
 
 export const validateCommentWithAI = async (taskTitle = '', taskDescription = '', commentContent = '') => {
+  if (!GEMINI_API_KEY) return { isValid: true };
+
   const prompt = `
     You are a strict project management assistant. Your primary goal is to keep the comment section of a task focused and productive. You must reject comments that are not helpful or relevant.
 

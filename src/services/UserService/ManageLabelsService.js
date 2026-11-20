@@ -1,8 +1,9 @@
+import { apiFetch } from "../apiFetch.js";
 import { API } from "../../constants/api.constants";
 
 export const apiGetLabelList = async (created_by) => {
   try {
-    const res = await fetch(`${API.LABEL_URI}?created_by=${created_by}`, {
+    const res = await apiFetch(`${API.LABEL_URI}?created_by=${created_by}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +27,7 @@ export const apiGetLabelList = async (created_by) => {
 
 export const apiGetPublicLabelList = async (created_by) => {
   try {
-    const res = await fetch(
+    const res = await apiFetch(
       `${API.LABEL_URI}?created_by=${created_by}&is_public=true`,
       {
         method: "GET",
@@ -53,7 +54,7 @@ export const apiGetPublicLabelList = async (created_by) => {
 
 export const apiCreateLabel = async (label) => {
   try {
-    const res = await fetch(API.LABEL_URI, {
+    const res = await apiFetch(API.LABEL_URI, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(label),
@@ -69,7 +70,7 @@ export const apiCreateLabel = async (label) => {
 
 export const apiUpdateLabel = async (label) => {
   try {
-    const res = await fetch(`${API.LABEL_URI}/${label.id}`, {
+    const res = await apiFetch(`${API.LABEL_URI}/${label.id}`, {
       method: "PUT", // Hoặc PATCH tùy server hỗ trợ
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(label),
@@ -85,7 +86,7 @@ export const apiUpdateLabel = async (label) => {
 
 export const apiGetLabelsDetail = async (labelId) => {
   try {
-    const res = await fetch(`${API.LABEL_URI}/${labelId}`, {
+    const res = await apiFetch(`${API.LABEL_URI}/${labelId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -102,7 +103,7 @@ export const apiGetLabelsDetail = async (labelId) => {
 
 export const apiRemoveLabel = async (labelId) => {
   try {
-    const res = await fetch(`${API.LABEL_URI}/${labelId}`, {
+    const res = await apiFetch(`${API.LABEL_URI}/${labelId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

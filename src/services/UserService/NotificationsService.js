@@ -1,3 +1,4 @@
+import { apiFetch } from "../apiFetch.js";
 import { API } from "../../constants/api.constants";
 import {
   PROJECT_INVITATION,
@@ -29,7 +30,7 @@ import { apiGetTaskList } from "./ManageTasksService";
 
 // export const apiGetNotifications = async (userId) => {
 //   try {
-//     const res = await fetch(`${API.NOTIFICATION_URI}?recipient_id=${userId}`, {
+//     const res = await apiFetch(`${API.NOTIFICATION_URI}?recipient_id=${userId}`, {
 //       method: "GET",
 //       headers: {
 //         "Content-Type": "application/json",
@@ -115,7 +116,7 @@ import { apiGetTaskList } from "./ManageTasksService";
 
 export const apiGetNotifications = async (userId) => {
   try {
-    const res = await fetch(`${API.NOTIFICATION_URI}?recipient_id=${userId}`, {
+    const res = await apiFetch(`${API.NOTIFICATION_URI}?recipient_id=${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -213,7 +214,7 @@ export const apiGetNotifications = async (userId) => {
 };
 export const apiGetUnreadNotificationCount = async (userId) => {
   try {
-    const res = await fetch(`${API.NOTIFICATION_URI}?recipient_id=${userId}`, {
+    const res = await apiFetch(`${API.NOTIFICATION_URI}?recipient_id=${userId}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -238,7 +239,7 @@ export const apiChangeNotificationStatus = async (
   newStatus
 ) => {
   try {
-    const res = await fetch(`${API.NOTIFICATION_URI}/${notificationId}`, {
+    const res = await apiFetch(`${API.NOTIFICATION_URI}/${notificationId}`, {
       method: "PATCH",
       body: JSON.stringify({
         status: newStatus,
@@ -258,7 +259,7 @@ export const apiChangeNotificationStatus = async (
 
 export const apiCreateNotifications = async (notificationData) => {
   try {
-    const res = await fetch(`${API.NOTIFICATION_URI}`, {
+    const res = await apiFetch(`${API.NOTIFICATION_URI}`, {
       method: "POST",
       body: JSON.stringify(notificationData),
       headers: {

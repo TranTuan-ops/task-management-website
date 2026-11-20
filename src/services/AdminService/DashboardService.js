@@ -1,9 +1,10 @@
+import { apiFetch } from "../apiFetch.js";
 import { API } from "../../constants/api.constants";
 import { apiGetUserDetail } from "./ManageUsersService";
 
 export const apiRenderArchivedProjects = async () => {
   try {
-    const res = await fetch(API.PROJECT_URI, {
+    const res = await apiFetch(API.PROJECT_URI, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
